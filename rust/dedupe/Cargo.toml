@@ -1,0 +1,8 @@
+[package]
+name    = "dedupe_rs"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+name = "dedupe_rs"
+crate-type = ["cdylib"] 

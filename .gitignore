@@ -1,0 +1,18 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.coverage
+
+# poetry
+dist/
+*.egg-info/
+
+# rust
+/target/
+
+# misc
+.idea/
+.vscode/
+.DS_Store

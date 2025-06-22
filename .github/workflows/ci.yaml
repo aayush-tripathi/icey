@@ -1,0 +1,35 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: poetry install --with dev
+
+      - name: Lint – Ruff
+        run: poetry run ruff check .
+
+      - name: Lint – Black
+        run: poetry run black --check .
+
+      - name: Lint – isort
+        run: poetry run isort --check-only .
+
+      - name: Type-check – mypy
+        run: poetry run mypy core cli
+
+      - name: Tests
+        run: poetry run pytest --cov=iceyCore
