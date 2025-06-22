@@ -18,16 +18,14 @@ packages = [
 [tool.poetry.scripts]
 icey = "cli.iceyCLI.__main__:app"
 
-[project.optional-dependencies]
-dev = [
-  "pytest>=8",
-  "pytest-cov",
-  "black>=25.1.0",
-  "ruff>=0.12.0",
-  "isort>=6.0.1",
-  "mypy>=1.16.1",
-  "pre-commit>=4.2.0"
-  ]
+[tool.poetry.group.dev.dependencies]
+pytest       = "^8"
+pytest-cov   = "*"
+black        = "^25.1.0"
+ruff         = "^0.12.0"
+isort        = "^6.0.1"
+mypy         = "^1.10"
+pre-commit   = "^4.2.0"
 
 [tool.black]
 line-length = 88
